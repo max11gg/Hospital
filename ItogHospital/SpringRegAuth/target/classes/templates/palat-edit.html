@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Client</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Редактирование палату</h1>
+    <form method="post" th:object="${palat}">
+        <table border="1" class="styled-table">
+            <tr>
+                <th>Номер</th>
+                <th>Кровать</th>
+            </tr>
+            <tr>
+                <td>
+                    <input class="form-control" type="text" name="numberPalat" placeholder="Введите Номер" th:field="*{numberPalat}" id="numberPalat" th:value="${numberPalat}">
+                    <div th:if="${#fields.hasErrors('numberPalat')}" th:errors="*{numberPalat}"/>
+                </td>
+                <td>
+                    <select name="numberBed">
+                        <div th:each="element : ${bed}">
+                            <option th:text="${element.numberBed}"></option>
+                        </div>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <button type="submit" class="my-1 btn btn-success">Изменить челика</button>
+    </form>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</html>

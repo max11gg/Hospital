@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Client</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Редактирование лаборатории</h1>
+    <form method="post" th:object="${laboratory}">
+        <table border="1" class="styled-table">
+            <tr>
+                <th>Название</th>
+                <th>Контракт</th>
+                <th>Профиль</th>
+            </tr>
+            <tr>
+                <td>
+                    <input class="form-control" type="text" name="nameLaboratory" placeholder="Введите Название" th:field="*{nameLaboratory}" id="nameLaboratory" th:value="${nameLaboratory}">
+                    <div th:if="${#fields.hasErrors('nameLaboratory')}" th:errors="*{nameLaboratory}"/>
+                </td>
+                <td>
+                    <input class="form-control" type="text" name="contract" placeholder="Введите Контракт" th:field="*{contract}" id="contract" th:value="${contract}">
+                    <div th:if="${#fields.hasErrors('contract')}" th:errors="*{contract}"/>
+                </td>
+                <td>
+                    <input class="form-control" type="text" name="profile" placeholder="Введите Профиль" th:field="*{profile}" id="profile" th:value="${profile}">
+                    <div th:if="${#fields.hasErrors('profile')}" th:errors="*{profile}"/>
+                </td>
+            </tr>
+        </table>
+        <button type="submit" class="my-1 btn btn-success">Изменить челика</button>
+    </form>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</html>
